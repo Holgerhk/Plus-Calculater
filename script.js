@@ -2,40 +2,61 @@ const input_one = document.querySelector(".input-one");
 const input_two = document.querySelector(".input-two");
 const output = document.querySelector(".output-text");
 const btn = document.querySelector(".btn");
-const btn_sign = document.querySelectorAll(".btn-sign");
+const btn_plus = document.querySelector(".btn-plus");
+const btn_minus = document.querySelector(".btn-minus");
+const btn_divide = document.querySelector(".btn-divide");
+const btn_times = document.querySelector(".btn-times");
+const btn_percentage = document.querySelector(".btn-percentage");
 
-console.log(btn_sign);
+let check = 0;
 
-btn_sign.forEach(btn => {
-    if (btn.clicked == true) {
-        btn_sign == false;
-        btn == true;
-        console.log(btn);
-    }
+btn_plus.addEventListener("click", () => {
+    check = 1;
+    console.log(check);
+});
+
+btn_minus.addEventListener("click", () => {
+    check = 2;
+    console.log(check);
+});
+
+btn_divide.addEventListener("click", () => {
+    check = 3;
+    console.log(check);
+});
+
+btn_times.addEventListener("click", () => {
+    check = 4;
+    console.log(check);
+});
+
+btn_percentage.addEventListener("click", () => {
+    check = 5;
+    console.log(check);
 });
 
 btn.addEventListener("click", () => {
     let value_one = input_one.value;
     let value_two = input_two.value;
 
-    if (btn_sign[0].clicked == true) {
+    if (check == 1) {
         let sum = +value_one + +value_two;
         output.textContent = sum;
 
-    } else if (btn_sign[1].clicked == true) {
+    } else if (check == 2) {
         let sum = +value_one - +value_two;
         output.textContent = sum;
 
-    } else if (btn_sign[2].clicked == true) {
+    } else if (check == 3) {
         let sum = +value_one / +value_two;
-        output.textContent = sum
+        output.textContent = sum;
 
-    } else if (btn_sign[3].clicked == true) {
+    } else if (check == 4) {
         let sum = +value_one * +value_two;
-        output.textContent = sum
+        output.textContent = sum;
         
-    } else if (btn_sign[4].clicked == true) {
-        let sum = +value_one + +value_two;
-        output.textContent = sum
+    } else if (check == 5) {
+        let sum = (value_two / 100) * value_one;
+        output.textContent = sum;
     }
 });
